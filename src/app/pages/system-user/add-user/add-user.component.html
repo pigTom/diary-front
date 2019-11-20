@@ -1,0 +1,18 @@
+<div>
+  <label for="username">用户名</label>
+  <input name="username" id="username"  type="text" [(ngModel)]="user.name"/>
+</div>
+<div>
+  <label for="desc">用户描述</label>
+  <input name="desc" id="desc" type="text" [(ngModel)]="user.description"/>
+</div>
+<div>
+  <label for="password">密码</label>
+  <input name="password" id="password" type="password" [(ngModel)]="user.authenticationString"/>
+</div>
+<div>
+  <label for="effectDay">有效天</label>
+  <input name="effectDay" id="effectDay" pattern="[0-31]" type="text" min=1 max=31 [(ngModel)]="user.passwordLifetime"/>
+</div>
+
+<button (click)="add()">添加会员</button>

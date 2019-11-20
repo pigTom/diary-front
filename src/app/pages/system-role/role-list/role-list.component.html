@@ -1,0 +1,28 @@
+<div>
+  <label>角色名</label>
+  <input name="name" type="text" [(ngModel)]="query.name"
+         (keyup.enter)="getList()"
+         placeholder="请输入角色名">
+  <button type="button" (click)="getList()">查询</button>
+</div>
+
+<table class="mat-table-sticky">
+  <tr>
+    <th>ID</th>
+    <th>角色名称</th>
+    <th>角色描述</th>
+    <th>创建时间</th>
+    <th>更新时间</th>
+    <th>创建人ID</th>
+  </tr>
+
+  <tr *ngFor="let use of roleList">
+    <td>{{use.id}}</td>
+    <td>{{use.name}}</td>
+    <td>{{use.description}}</td>
+    <td>{{use.createTime}}</td>
+    <td>{{use.updateTime}}</td>
+    <td>{{use.createId}}</td>
+  </tr>
+
+</table>

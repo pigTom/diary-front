@@ -1,0 +1,10 @@
+<div>
+  <label for="username">角色名</label>
+  <input name="username" id="username"  type="text" [(ngModel)]="role.name"/>
+</div>
+<div>
+  <label for="desc">角色描述</label>
+  <input name="desc" id="desc" type="text" [(ngModel)]="role.description"/>
+</div>
+
+<button (click)="add()">添加会员</button>

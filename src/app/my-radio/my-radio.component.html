@@ -1,0 +1,12 @@
+<div>
+  <div *ngFor="let item of source">
+    <label for="{{item.text}}">
+      <input name="{{groupName}}"
+             value="{{item.value}}" id="{{item.text}}" type="radio"
+             (click)="onClick($event)"
+             [(ngModel)]="defaultValue"
+             [disabled]="disabled">
+      <span>{{item.text}}</span>
+    </label>
+  </div>
+</div>
