@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {Query} from '../query';
 import {User} from '../user';
@@ -16,7 +16,7 @@ export class UserListComponent implements OnInit {
     this.query = new Query();
     this.getList();
   }
-  private getList() {
+  getList() {
     this.systemUserService.getUserList(this.query).subscribe(res => {
       const code = 'code';
       const data = 'data';
@@ -26,7 +26,7 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  private exportToExcel() {
+  exportToExcel() {
     this.systemUserService.exportToExcel()
   }
 }

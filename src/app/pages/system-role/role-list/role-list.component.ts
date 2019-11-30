@@ -9,8 +9,8 @@ import {Role} from '../role';
   styleUrls: ['./role-list.component.css']
 })
 export class RoleListComponent implements OnInit {
-  private query = new Query();
-  private pager = new Pager();
+  query = new Query();
+  pager = new Pager();
   roleList: Role[];
 
   constructor(private roleService: RoleService) {
