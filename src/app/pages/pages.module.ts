@@ -8,9 +8,7 @@ import {routers} from './pages.routing';
 import {AddUserComponent} from './system-user/add-user/add-user.component';
 import {AddRoleComponent} from './system-role/add-role/add-role.component';
 import {DownloadComponent} from './file/download/download.component';
-import {HeroListComponent} from './heroes/hero-list/hero-list.component';
-import {HeroDetailComponent} from './heroes/hero-detail/hero-detail.component';
-import {HeroSearchComponent} from './hero-search/hero-search.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -19,10 +17,8 @@ import {HeroSearchComponent} from './hero-search/hero-search.component';
     RoleListComponent,
     AddUserComponent,
     AddRoleComponent,
+    PageNotFoundComponent,
     DownloadComponent,
-    HeroListComponent,
-    HeroDetailComponent,
-    HeroSearchComponent
   ],
   imports: [
     FormsModule,

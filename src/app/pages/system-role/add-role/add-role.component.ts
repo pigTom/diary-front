@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Role} from '../role';
 import {RoleService} from '../role.service';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-role',
@@ -9,7 +11,9 @@ import {RoleService} from '../role.service';
 })
 export class AddRoleComponent implements OnInit {
   role: Role;
-  constructor(private roleService: RoleService) { }
+  constructor(private roleService: RoleService,
+              private router: Router,
+              private toasterService: ToastrService) { }
 
   ngOnInit() {
     this.role = new Role();
@@ -19,9 +23,11 @@ export class AddRoleComponent implements OnInit {
     console.log(this.role);
     this.roleService.add(this.role).subscribe(res => {
       if (res['code'] === 0) {
-        console.log('add success');
+        this.router.navigate(['/pages/roles']).then(() => {
+          this.toasterService.success("新增成功");
+        })
       } else {
-        console.log(res['message'])
+        this.toasterService.error(res['message'])
       }
     })
   }

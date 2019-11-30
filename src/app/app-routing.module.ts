@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './auth/login.component';
 import {MainNavComponent} from './pages/main-nav/main-nav.component';
+import {AuthGuard} from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,17 +10,14 @@ const routes: Routes = [
     component: MainNavComponent,
     children: [
       {
-        path: 'error', // 错误
-        component: PageNotFoundComponent
-      },
-      {
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         path: 'pages', // 项目的业务模块
         loadChildren: './pages/pages.module#PagesModule'
       }
     ]
   },
   { path: 'login', component: LoginComponent},
-  { path: '404', component: PageNotFoundComponent},
   { path: '**', component: LoginComponent },
 ];
 
@@ -28,7 +25,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(
       routes,
-      {enableTracing: true})
+      {enableTracing: false})
   ],
   exports: [RouterModule]
 })

@@ -1,12 +1,10 @@
-import {RouterModule, Routes} from '@angular/router';
+import {Routes} from '@angular/router';
 import {RoleListComponent} from './system-role/role-list/role-list.component';
-import {NgModule} from '@angular/core';
 import {AddRoleComponent} from './system-role/add-role/add-role.component';
 import {AddUserComponent} from './system-user/add-user/add-user.component';
 import {UserListComponent} from './system-user/user-list/user-list.component';
-import {HeroListComponent} from './heroes/hero-list/hero-list.component';
-import {HeroDetailComponent} from './heroes/hero-detail/hero-detail.component';
 import {DownloadComponent} from './file/download/download.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 export const routers: Routes = [
   {
@@ -35,8 +33,9 @@ export const routers: Routes = [
   {
     path: 'download',
     component: DownloadComponent
+  },{
+    path: '**',
+    component: PageNotFoundComponent
   },
-  {path: 'heroes', component: HeroListComponent},
-  {path: 'detail/:id', component: HeroDetailComponent}
 ];
 

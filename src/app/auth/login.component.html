@@ -1,0 +1,25 @@
+<div class="contain">
+
+
+  <div id="main">
+    <div>
+      <label for="username">用户名:</label>
+      <input id="username" name="username" [(ngModel)]="username" type="text"
+             (keyup.enter)="login()">
+    </div>
+
+    <div>
+      <label for="password">密&ensp;&ensp;码 :</label>
+      <input id="password" name="password" [(ngModel)]="password" type="password"
+             (keyup.enter)="login()">
+    </div>
+
+    <div>
+      <button class="login" (click)="login()" (keyup.enter)="login()">登录 </button>
+<!--      <button class="guest" (click)="guest()">客人登录</button>-->
+    </div>
+x
+  </div>
+
+</div>
+

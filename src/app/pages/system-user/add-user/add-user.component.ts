@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {User} from '../user';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-user',
@@ -12,6 +13,7 @@ export class AddUserComponent implements OnInit {
   user: User;
 
   constructor(private userService: UserService,
+              private toastr: ToastrService,
               private router: Router) { }
 
   ngOnInit() {
@@ -20,8 +22,8 @@ export class AddUserComponent implements OnInit {
   add() {
     this.userService.addUser(this.user).subscribe(res => {
       if (res['code'] === 0) {
-        this.router.navigateByUrl("system-user").then();
-        console.log('新增成功');
+        this.router.navigateByUrl("/pages/users").then();
+        this.toastr.success('新增成功', "SUCCESS");
       }
     });
   }
